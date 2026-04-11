@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immune2V — Supplementary Material</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --border: #dde2ea;
+      --accent: #1e4d8c;
+      --accent-mid: #2c6fc9;
+      --accent-light: #dce8f8;
+      --green: #1a6e3f;
+      --green-light: #d0eddc;
+      --gray-label: #4a4a5a;
+      --gray-light: #eeeef3;
+      --amber: #7a5a00;
+      --amber-light: #fff3cc;
+      --ph-bg: #f0f0f8;
+      --ph-border: #c4c4d8;
+      --text: #18182e;
+      --text-muted: #656578;
+      --shadow: 0 2px 14px rgba(20,30,60,0.07);
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* ── Header ─────────────────────────────────────────── */
+    .site-header {
+      background: linear-gradient(135deg, #1a3d7c 0%, #2c6fc9 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .site-header h1 {
+      font-size: 1.85rem;
+      font-weight: bold;
+      line-height: 1.35;
+      max-width: 720px;
+      margin: 0 auto 0.5rem;
+    }
+    .site-header .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.82;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .site-header .badges {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Table of Contents ───────────────────────────────── */
+    .toc-section {
+      margin-bottom: 2.5rem;
+    }
+    .toc-section > h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+    .toc-hint {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .toc-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .toc-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1.2rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s, background 0.15s, transform 0.12s, box-shadow 0.15s;
+      cursor: pointer;
+    }
+    .toc-card:hover {
+      border-color: var(--accent-mid);
+      background: var(--accent-light);
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px rgba(30,77,140,0.11);
+    }
+    .toc-card:active { transform: translateX(2px); }
+    .toc-card .tc-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-mid);
+      background: var(--accent-light);
+      border: 1px solid #b8d4f0;
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .toc-card .tc-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      flex: 1;
+    }
+    .toc-card .tc-desc {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .toc-card .tc-arrow {
+      font-size: 0.9rem;
+      color: var(--accent-mid);
+      opacity: 0.5;
+      flex-shrink: 0;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .toc-card:hover .tc-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* ── Section card ────────────────────────────────────── */
+    .fig-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 20px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+    .fig-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .fig-section h2 { font-size: 1.2rem; color: var(--accent); }
+    .fig-caption {
+      font-size: 0.855rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 1.6rem;
+      padding: 0.9rem 1rem;
+      background: var(--bg);
+      border-left: 3px solid var(--border);
+      border-radius: 0 6px 6px 0;
+    }
+    .fig-caption strong { font-style: normal; color: var(--text); }
+
+    /* ── Scene divider ───────────────────────────────────── */
+    .scene-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.8rem 0 1.1rem;
+    }
+    .scene-tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      white-space: nowrap;
+      background: var(--gray-light);
+      padding: 0.2rem 0.7rem;
+      border-radius: 4px;
+    }
+    .scene-divider hr { flex: 1; border: none; border-top: 1px solid var(--border); }
+
+    /* ── Prompt badge ────────────────────────────────────── */
+    .prompt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--amber-light);
+      border: 1px solid #e8c84a;
+      border-radius: 5px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .prompt-badge::before { content: '\201C'; font-style: normal; font-weight: bold; opacity: 0.5; }
+    .prompt-badge::after  { content: '\201D'; font-style: normal; font-weight: bold; opacity: 0.5; }
+
+    /* ── Video grid ──────────────────────────────────────── */
+    .video-grid { display: grid; gap: 0.9rem; }
+    .cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+    /* ── Video card ──────────────────────────────────────── */
+    .video-card { display: flex; flex-direction: column; }
+    .card-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px 6px 0 0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      border-bottom: none;
+    }
+    .lbl-clean  { background: var(--gray-light);  color: var(--gray-label); border-color: #d0d0de; }
+    .lbl-ours   { background: var(--green-light); color: var(--green);      border-color: #9dd5b8; }
+    .lbl-accent { background: var(--accent-light);color: var(--accent);     border-color: #a8c8ef; }
+    .lbl-amber  { background: var(--amber-light); color: var(--amber);      border-color: #e8c84a; }
+    .lbl-ph     { background: var(--ph-bg);       color: #8888a8;           border-color: var(--ph-border); }
+
+    .video-card video {
+      width: 100%;
+      display: block;
+      background: #000;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      max-height: 220px;
+      object-fit: cover;
+    }
+    .video-sublabel {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      text-align: center;
+      color: var(--text-muted);
+      padding: 0.3rem 0.2rem 0;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    /* ── Placeholder card ────────────────────────────────── */
+    .ph-card { display: flex; flex-direction: column; }
+    .ph-box {
+      flex: 1;
+      background: var(--ph-bg);
+      border: 2px dashed var(--ph-border);
+      border-radius: 0 0 6px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 130px;
+      padding: 1rem 0.75rem;
+      text-align: center;
+    }
+    .ph-icon { font-size: 1.6rem; margin-bottom: 0.45rem; opacity: 0.35; line-height: 1; }
+    .ph-text {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.73rem;
+      color: #9999b8;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    /* ── References ─────────────────────────────────────── */
+    .references {
+      max-width: 1080px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+    .references h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .references ol {
+      padding-left: 1.5rem;
+    }
+    .references li {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin-top: 1rem;
+    }
+
+    /* ── Architecture Tabs ───────────────────────────────── */
+    .arch-tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.6rem;
+    }
+    .arch-tab-btn {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.55rem 1.4rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .arch-tab-btn:hover { color: var(--accent-mid); }
+    .arch-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .arch-tab-panel { display: none; }
+    .arch-tab-panel.active { display: block; }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .cols-5 { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .site-header h1 { font-size: 1.35rem; }
+      .cols-2 { grid-template-columns: 1fr; }
+      .cols-4 { grid-template-columns: repeat(2, 1fr); }
+      .cols-5 { grid-template-columns: repeat(2, 1fr); }
+      .fig-section { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <h1>Immune2V: Image Immunization Against<br>Dual-Stream Image-to-Video Generation</h1>
+  <p class="subtitle">Anonymous ECCV 2026 Submission</p>
+  <div class="badges">
+    <span class="badge">Paper #1591</span>
+    <span class="badge">Supplementary Material</span>
+    <span class="badge">ECCV 2026</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ═══════════ TABLE OF CONTENTS ═══════════ -->
+  <nav class="toc-section">
+    <h2>Table of Contents</h2>
+    <p class="toc-hint">Click a figure to jump to that section.</p>
+    <div class="toc-grid">
+      <a class="toc-card" href="#fig1">
+        <span class="tc-num">Main Paper Fig. 1</span>
+        <span class="tc-title">Immune2V Protection</span>
+        <span class="tc-desc">Orchid &amp; Train — clean vs. immunized</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+      <a class="toc-card" href="#fig2">
+        <span class="tc-num">Main Paper Fig. 2</span>
+        <span class="tc-title">Dual-Stream Architecture</span>
+        <span class="tc-desc">No immunization vs. with immunization</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+      <a class="toc-card" href="#fig4">
+        <span class="tc-num">Main Paper Fig. 4</span>
+        <span class="tc-title">Semantic Conditioning Override</span>
+        <span class="tc-desc">Trajectory analysis — four conditions</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+      <a class="toc-card" href="#fig6">
+        <span class="tc-num">Main Paper Fig. 6</span>
+        <span class="tc-title">Qualitative Comparisons</span>
+        <span class="tc-desc">BMX Bumps &amp; Horsejump-High</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+      <a class="toc-card" href="#fig7">
+        <span class="tc-num">Main Paper Fig. 7</span>
+        <span class="tc-title">Additional Results</span>
+        <span class="tc-desc">Car Roundabout, Boat &amp; Dance Twirl</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+      <a class="toc-card" href="#fig-dc">
+        <span class="tc-num">Supp. Fig.</span>
+        <span class="tc-title">Our Method on Other Architectures</span>
+        <span class="tc-desc">DynamiCrafter &amp; I2VGenXL</span>
+        <span class="tc-arrow">&#8594;</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════ FIGURE 1 ═══════════ -->
+  <section class="fig-section" id="fig1">
+    <div class="section-head">
+      <span class="fig-num">Main Paper Fig. 1</span>
+      <h2>Immune2V Protection</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Immune2V Protection.</strong>
+      Immune2V protects images from Image-to-Video (I2V) generation by adding imperceptible
+      immunization noise to produce an immunized image. When processed by an I2V generator,
+      a clean image yields realistic motion (<em>e.g.</em>, the human face articulates naturally
+      and the train moves circularly), whereas the immunized image disrupts the generation dynamics,
+      producing highly unrealistic videos (<em>e.g.</em>, the human subject is severely distorted
+      and the train structurally collapses).
+    </p>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Scene 1 &mdash; Orchid</span><hr>
+    </div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean Image</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Realistic motion &mdash; a man furiously shaking a mounted orchid plant</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Immunized Image &mdash; Ours</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Disrupted generation &mdash; subject severely distorted</div>
+      </div>
+    </div>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Scene 2 &mdash; Train</span><hr>
+    </div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean Image</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig1/ex2-train-original.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Realistic motion &mdash; a miniature train circling along a curved model railway</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Immunized Image &mdash; Ours</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig1/ex2-train-ours.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Disrupted generation &mdash; train structurally collapses</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FIGURE 2 ═══════════ -->
+  <section class="fig-section" id="fig2">
+    <div class="section-head">
+      <span class="fig-num">Main Paper Fig. 2</span>
+      <h2>Immunization on Dual-Stream I2V Architecture</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Immunization on Dual-Stream I2V Architecture.</strong>
+      A clean input image guides the generation process through (i) a <em>spatial-temporal stream</em>,
+      where the image is processed through a video encoder to initialize the structural latent space,
+      and (ii) a <em>semantic stream</em>, where an image encoder extracts high-level embeddings for
+      continuous semantic guidance. While these streams normally generate a realistic video,
+      injecting an adversarial perturbation yields an immunized image that simultaneously disrupts
+      both conditioning streams, forcing the generation process into structural collapse.
+    </p>
+    <div class="prompt-badge">A car is turning on the road</div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">&#x274C;&nbsp; No Immunization (Clean)</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig2/car-turn-original.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Realistic video synthesized</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">&#x2705;&nbsp; With Immunization &mdash; Ours</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig2/car-turn-ours.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Generation forced into structural collapse</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FIGURE 4 ═══════════ -->
+  <section class="fig-section" id="fig4">
+    <div class="section-head">
+      <span class="fig-num">Main Paper Fig. 4</span>
+      <h2>Semantic Conditioning Override</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Semantic Conditioning Override.</strong>
+      We analyze generative trajectories in the noise latent space by measuring semantic distance
+      to a clean baseline at each timestep.
+      (a)&nbsp;A mismatched prompt (Bad Prompt) naturally diverges from the baseline.
+      (b)&nbsp;An encoder-only spatial attack is overridden by the continuous semantic guidance
+      of a good prompt, rapidly pulling the trajectory back toward the clean state.
+      (c)&nbsp;Our joint approach actively counteracts the semantic guidance, maintaining a flatter
+      slope and sustaining the disruption across the generative process.
+    </p>
+    <div class="video-grid cols-4" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean Image &amp; Good Prompt</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig4/clean-good-prompt.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Reference trajectory &mdash; baseline</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-amber">Clean Image &amp; Bad Prompt</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig4/clean-bad-prompt.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Diverges naturally &mdash; positive slope</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-accent">Encoder Imm. &amp; Good Prompt</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig4/encoder-ours-good-prompt.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Overridden by semantic guidance</div>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours Imm. &amp; Good Prompt</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig4/ours-good-prompt.mp4" type="video/mp4">
+        </video>
+        <div class="video-sublabel">Disruption sustained &mdash; flatter slope</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FIGURE 6 ═══════════ -->
+  <section class="fig-section" id="fig6">
+    <div class="section-head">
+      <span class="fig-num">Main Paper Fig. 6</span>
+      <h2>Qualitative Comparisons</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Qualitative Comparisons.</strong>
+      A qualitative comparison across baselines, showing the input frame and subsequent video frames.
+      Clean inputs and baselines yield coherent videos with plausible motion, while our approach
+      induces progressive structural collapse (<em>e.g.</em>, the BMX rider's geometry distorts
+      mid-sequence, and the horse rider loses anatomical coherence) that persists across frames.
+      Notably, PhotoGuard-E leaves visible perturbation traces on the input image due to its
+      fast-converging encoder-only loss, yet this corruption fails to transfer to the generated video.
+    </p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.4rem;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.75rem;">
+      <span style="background:var(--gray-light);color:var(--gray-label);padding:0.2rem 0.75rem;border-radius:20px;font-weight:700;">Clean</span>
+      <span style="background:var(--ph-bg);color:#8888a8;padding:0.2rem 0.75rem;border-radius:20px;font-weight:700;">Random Gaussian</span>
+      <span style="background:var(--ph-bg);color:#8888a8;padding:0.2rem 0.75rem;border-radius:20px;font-weight:700;">PhotoGuard-E</span>
+      <span style="background:var(--ph-bg);color:#8888a8;padding:0.2rem 0.75rem;border-radius:20px;font-weight:700;">PhotoGuard-D</span>
+      <span style="background:var(--green-light);color:var(--green);padding:0.2rem 0.75rem;border-radius:20px;font-weight:700;">Ours</span>
+    </div>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Example 1 &mdash; BMX Bumps</span><hr>
+    </div>
+    <div class="prompt-badge">A BMX rider riding and jumping on a dirt track</div>
+    <div class="video-grid cols-5" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex1-bmx-bumps-original.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">Random Gaussian</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex1-bmx-bumps-random-gaussian.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">PhotoGuard-E</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex1-bmx-bumps-photoguard-e.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">PhotoGuard-D</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex1-bmx-bumps-photoguard-d.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Example 2 &mdash; Horsejump-High</span><hr>
+    </div>
+    <div class="prompt-badge">A horse rider jumping over a hurdle</div>
+    <div class="video-grid cols-5" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex2-horsejump-original.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">Random Gaussian</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex2-horsejump-random-gaussian.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">PhotoGuard-E</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex2-horsejump-photoguard-e.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ph">PhotoGuard-D</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex2-horsejump-photoguard-d.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig6/ex2-horsejump-ours.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FIGURE 7 ═══════════ -->
+  <section class="fig-section" id="fig7">
+    <div class="section-head">
+      <span class="fig-num">Main Paper Fig. 7</span>
+      <h2>Additional Qualitative Results</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Additional Qualitative Results.</strong>
+      Sampled frames from the generated videos are shown on the left, with zoomed comparisons
+      against the corresponding clean video frames on the right. Across diverse scenes (humans
+      and objects), the generated videos exhibit progressive structural breakdown, deteriorating
+      object geometry and fine details into unstable textures.
+    </p>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Example 1 &mdash; Car Roundabout</span><hr>
+    </div>
+    <div class="prompt-badge">A car driving through a roundabout.</div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex1-car-roundabout-original.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours (Immunized)</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex1-car-roundabout-ours.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Example 2 &mdash; Boat</span><hr>
+    </div>
+    <div class="prompt-badge">A fishing boat moving across the water.</div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours (Immunized)</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex2-boat-ours.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="scene-divider">
+      <span class="scene-tag">Example 3 &mdash; Dance Twirl</span><hr>
+    </div>
+    <div class="prompt-badge">A dancer twirling during a street performance.</div>
+    <div class="video-grid cols-2" data-sync-group>
+      <div class="video-card">
+        <div class="card-label lbl-clean">Clean</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex3-dance-twirl-original.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <div class="card-label lbl-ours">Ours (Immunized)</div>
+        <video muted loop playsinline controls>
+          <source src="videos/fig7/ex3-dance-twirl-ours.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ OTHER ARCHITECTURES ═══════════ -->
+  <section class="fig-section" id="fig-dc">
+    <div class="section-head">
+      <span class="fig-num">Supp. Fig.</span>
+      <h2>Our Method on Other Architectures</h2>
+    </div>
+    <p class="fig-caption">
+      <strong>Our Method on Other Architectures.</strong>
+      We evaluate Immune2V on additional I2V backbones to demonstrate generalization beyond
+      the primary Wan 2.1 model. Each pair shows the clean generated video alongside the video
+      generated from our immunized image, which induces persistent structural degradation across
+      the full sequence.
+    </p>
+
+    <!-- Tab bar -->
+    <div class="arch-tab-bar" role="tablist">
+      <button class="arch-tab-btn active" role="tab" data-panel="panel-dc">DynamiCrafter [1]</button>
+      <button class="arch-tab-btn"        role="tab" data-panel="panel-i2v">I2VGenXL [2]</button>
+    </div>
+
+    <!-- ── Tab 1: DynamiCrafter ── -->
+    <div id="panel-dc" class="arch-tab-panel active">
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 1 &mdash; Lucia</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex1-lucia-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; human subject</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex1-lucia-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; anatomical distortion</div>
+        </div>
+      </div>
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 2 &mdash; Dog</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex2-dog-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; dog subject</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex2-dog-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; structural collapse</div>
+        </div>
+      </div>
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 3 &mdash; Violin</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex3-violin-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; violin performance</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-dc/ex3-violin-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; texture breakdown</div>
+        </div>
+      </div>
+
+    </div><!-- /panel-dc -->
+
+    <!-- ── Tab 2: I2VGenXL ── -->
+    <div id="panel-i2v" class="arch-tab-panel">
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 1 &mdash; Parkour</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/parkour-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; parkour athlete</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/parkour-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; structural degradation</div>
+        </div>
+      </div>
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 2 &mdash; Swing</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/swing-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; swing scene</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/swing-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; motion collapse</div>
+        </div>
+      </div>
+
+      <div class="scene-divider">
+        <span class="scene-tag">Example 3 &mdash; Tandem</span><hr>
+      </div>
+      <div class="video-grid cols-2" data-sync-group>
+        <div class="video-card">
+          <div class="card-label lbl-clean">Clean</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/tandem-original.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Realistic motion &mdash; tandem bicycle</div>
+        </div>
+        <div class="video-card">
+          <div class="card-label lbl-ours">Ours</div>
+          <video muted loop playsinline controls>
+            <source src="videos/fig-i2vgen/tandem-ours.mp4" type="video/mp4">
+          </video>
+          <div class="video-sublabel">Disrupted generation &mdash; texture breakdown</div>
+        </div>
+      </div>
+
+    </div><!-- /panel-i2v -->
+
+  </section>
+
+</div><!-- /container -->
+
+<div class="references">
+  <h2>References</h2>
+  <ol>
+    <li>
+      Xing, J., Xia, M., Zhang, Y., Chen, H., Yu, W., Liu, H., Liu, G., Wang, X., Shan, Y., Zhang, J., &amp; Wong, T. T. (2024, September).
+      DynamiCrafter: Animating open-domain images with video diffusion priors.
+      In <em>European Conference on Computer Vision</em> (pp. 399–417). Cham: Springer Nature Switzerland.
+    </li>
+    <li>
+      Zhang, S., Wang, J., Zhang, Y., Zhao, K., Yuan, H., Qin, Z., Wang, X., Zhao, D., &amp; Zhou, J. (2023).
+      I2VGen-XL: High-quality image-to-video synthesis via cascaded diffusion models.
+      <em>arXiv preprint arXiv:2311.04145</em>.
+    </li>
+  </ol>
+</div>
+
+<footer>
+  Immune2V &nbsp;&middot;&nbsp; Anonymous ECCV 2026 Submission &nbsp;&middot;&nbsp; Paper #1591
+  &nbsp;&middot;&nbsp; Supplementary Material
+</footer>
+
+<script>
+  // ── Video sync: wait for all, then start together ────────────────────────
+  //
+  // Videos in a group have identical frame counts, so starting them at the
+  // same moment is sufficient — no ongoing sync loop needed.
+  //
+  const RATE = 0.75; // slightly slower playback for easier comparison
+
+  document.querySelectorAll('[data-sync-group]').forEach(grid => {
+    const videos = Array.from(grid.querySelectorAll('video'));
+    if (videos.length < 2) return;
+
+    // Preload everything and set rate
+    videos.forEach(v => {
+      v.muted        = true;
+      v.loop         = true;
+      v.preload      = 'auto';
+      v.playbackRate = RATE;
+    });
+
+    // Promise that resolves once a video has buffered enough to play
+    function whenReady(v) {
+      return new Promise(resolve => {
+        if (v.readyState >= 3) { resolve(); return; }
+        v.addEventListener('canplay', resolve, { once: true });
+      });
+    }
+
+    // Wait for ALL videos in the group, then fire play() in one synchronous pass
+    Promise.all(videos.map(whenReady)).then(() => {
+      videos.forEach(v => { v.currentTime = 0; v.playbackRate = RATE; });
+      videos.forEach(v => v.play().catch(() => {}));
+    });
+  });
+
+  // ── Architecture tab switching ────────────────────────────────────────────
+  document.querySelectorAll('.arch-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest('.fig-section');
+      const panelId = btn.dataset.panel;
+
+      // Update buttons
+      section.querySelectorAll('.arch-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update panels
+      section.querySelectorAll('.arch-tab-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(panelId);
+      panel.classList.add('active');
+
+      // Sync videos in the newly visible panel
+      panel.querySelectorAll('[data-sync-group]').forEach(grid => {
+        const videos = Array.from(grid.querySelectorAll('video'));
+        if (videos.length < 2) return;
+        videos.forEach(v => {
+          v.muted = true; v.loop = true; v.preload = 'auto'; v.playbackRate = RATE;
+        });
+        function whenReady(v) {
+          return new Promise(resolve => {
+            if (v.readyState >= 3) { resolve(); return; }
+            v.addEventListener('canplay', resolve, { once: true });
+          });
+        }
+        Promise.all(videos.map(whenReady)).then(() => {
+          videos.forEach(v => { v.currentTime = 0; v.playbackRate = RATE; });
+          videos.forEach(v => v.play().catch(() => {}));
+        });
+      });
+    });
+  });
+
+</script>
+
+</body>
+</html>
