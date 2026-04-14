@@ -47,21 +47,25 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Immune2V: Image Immunization Against Dual-Stream Image-to-Video Generation</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Author One<sup>1</sup>,</span>
-            <span class="author-block">Author Two<sup>1</sup>,</span>
-            <span class="author-block">Author Three<sup>2</sup>,</span>
-            <span class="author-block">Author Four<sup>2</sup></span>
+            <span class="author-block"><a href="https://zeqian-long.github.io/">Zeqian Long</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="https://karaozgur.com/">Ozgur Kara</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="https://xavihart.github.io/">Haotian Xue</a><sup>2*</sup>,</span>
+            <span class="author-block"><a href="https://yongxin.ae.gatech.edu/">Yongxin Chen</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://rehg.org/">James M. Rehg</a><sup>1</sup></span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Affiliation Placeholder,</span>
-            <span class="author-block"><sup>2</sup>Affiliation Placeholder</span>
+            <span class="author-block"><sup>1</sup>UIUC,</span>
+            <span class="author-block"><sup>2</sup>Georgia Tech</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">* denotes equal contribution</span>
           </div>
           <div class="column has-text-centered">
             <div class="publication-links">
-              <span class="link-block"><a class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
-              <span class="link-block"><a class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
-              <span class="link-block"><a class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
-              <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#supplementary"><span class="icon"><i class="fas fa-photo-film"></i></span><span>Supplementary</span></a></span>
+              <!-- <span class="link-block"><a class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span> -->
+              <span class="link-block"><a href="https://arxiv.org/abs/2604.10837" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
+              <span class="link-block"><a href="https://github.com/Zeqian-Long/Immune2V" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+              <!-- <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#supplementary"><span class="icon"><i class="fas fa-photo-film"></i></span><span>Supplementary</span></a></span> -->
             </div>
           </div>
         </div>
@@ -70,20 +74,20 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline controls>
         <source src="videos/fig2/car-turn-original.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Immune2V</span> protects images against downstream image-to-video generation while preserving the original visual appearance.
+        <p><strong>TL;DR:</strong> Immune2V is an image immunization framework that protects images against unauthorized dual-stream image-to-video generation, preventing illicit video synthesis from protected content.
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -96,24 +100,22 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section" id="abstract">
+<!-- <section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>Immune2V studies image immunization against dual-stream image-to-video generation. The goal is to protect an image from being animated by downstream I2V models while keeping the protected image visually close to the original input.</p>
-          <p>Across multiple scenes, clean images lead to realistic motion and coherent structure, while immunized images cause the resulting generated videos to collapse into distortion, structural failure, or temporal inconsistency.</p>
-          <p>This page uses the Nerfies project-page scaffold directly and fills it with Immune2V supplementary comparisons, with placeholder metadata left in place for authors, affiliations, and publication links.</p>
+          <p>Image-to-video (I2V) generation has the potential for societal harm because it enables the unauthorized animation of static images to create realistic deepfakes. While existing defenses effectively protect against static image manipulation, extending these to I2V generation remains underexplored and non-trivial. In this paper, we systematically analyze why modern I2V models are highly robust against naive image-level adversarial attacks (i.e., immunization). We observe that the video encoding process rapidly dilutes the adversarial noise across future frames, and the continuous text-conditioned guidance actively overrides the intended disruptive effect of the immunization. Building on these findings, we propose the <strong>Immune2V</strong> framework which enforces temporally balanced latent divergence at the encoder level to prevent signal dilution, and aligns intermediate generative representations with a precomputed collapse-inducing trajectory to counteract the text-guidance override. Extensive experiments demonstrate that Immune2V produces substantially stronger and more persistent degradation than adapted image-level baselines under the same imperceptibility budget.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section" id="supplementary">
+<!-- <section class="section" id="supplementary">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -220,9 +222,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section" id="bibtex">
+<!-- <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{immune2v2026,
@@ -232,9 +234,9 @@
   year    = {2026},
 }</code></pre>
   </div>
-</section>
+</section> -->
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -245,7 +247,10 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
+
+
+The website will be updated very soon. Stay tuned!
 
 </body>
 </html>
