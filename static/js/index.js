@@ -1,5 +1,27 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+function syncFig2CardHeight() {
+  const figureCard = document.querySelector('#fig2 .fig2-figure-card');
+  const figureImage = document.querySelector('#fig2 .fig2-figure-card img');
+  const referenceCard = document.querySelector('#fig2 .fig2-reference-card');
+
+  if (!figureCard || !figureImage || !referenceCard) return;
+
+  figureCard.style.height = '';
+  figureImage.style.height = '';
+
+  if (window.innerWidth <= 768) return;
+
+  const targetHeight = Math.round(referenceCard.getBoundingClientRect().height);
+  const label = figureCard.querySelector('.video-label');
+  const labelHeight = label ? Math.round(label.getBoundingClientRect().height) : 0;
+
+  if (targetHeight > 0) {
+    figureCard.style.height = `${targetHeight}px`;
+    figureImage.style.height = `${Math.max(targetHeight - labelHeight, 0)}px`;
+  }
+}
+
 function syncVideoGroups() {
   const groups = new Map();
   document.querySelectorAll('video[data-sync-group]').forEach((video) => {
@@ -56,6 +78,9 @@ $(document).ready(function() {
   }
 
   syncVideoGroups();
+  syncFig2CardHeight();
+  $(window).on('load resize', syncFig2CardHeight);
+  $('video[data-sync-group="fig2"]').on('loadedmetadata loadeddata canplay', syncFig2CardHeight);
 
   $('.arch-tab').click(function() {
     const panelId = $(this).data('panel');

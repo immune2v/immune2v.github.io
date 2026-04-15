@@ -2,6 +2,21 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.page-container {
+  width: min(92vw, 1400px);
+  max-width: min(92vw, 1400px) !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.text-column {
+  max-width: 1120px;
+}
+
+.unified-content-column {
+  max-width: 100%;
+}
+
 .footer .icon-link {
   font-size: 25px;
   color: #000;
@@ -84,11 +99,20 @@ body {
 .prompt-line {
   margin-bottom: 0.9rem;
   color: #555;
-  font-style: italic;
+  font-weight: 700;
 }
 
 .video-card {
   margin-bottom: 1rem;
+}
+
+.figure-card {
+  margin-bottom: 1rem;
+}
+
+.fig2-figure-card {
+  display: flex;
+  flex-direction: column;
 }
 
 .video-label {
@@ -137,11 +161,50 @@ body {
   background: #000;
 }
 
+.figure-card img {
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background: #fff;
+}
+
+.fig2-figure-card img {
+  flex: 1 1 auto;
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
+.figure-block img {
+  width: 100%;
+}
+
+.stream-spatiotemporal {
+  color: #9ecae1;
+  font-weight: 700;
+}
+
+.stream-semantic {
+  color: #f4a261;
+  font-weight: 700;
+}
+
 .video-card p {
   margin-top: 0.5rem;
   text-align: center;
   color: #666;
   font-size: 0.92rem;
+}
+
+.fig6-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.fig6-item {
+  flex: 1 1 20%;
+  max-width: 20%;
 }
 
 .arch-panel {
@@ -153,6 +216,22 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .fig6-row {
+    flex-wrap: wrap;
+  }
+
+  .fig6-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .page-container {
+    width: 100%;
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .publication-links .button {
     width: 100%;
   }

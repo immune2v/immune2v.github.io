@@ -32,17 +32,19 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#top"><span class="icon"><i class="fas fa-home"></i></span></a>
+      <a class="navbar-item" href="#top">Demo</a>
       <a class="navbar-item" href="#abstract">Abstract</a>
-      <a class="navbar-item" href="#supplementary">Supplementary</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
+      <a class="navbar-item" href="#references">References</a>
     </div>
   </div>
 </nav>
 
 <section class="hero" id="top">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen page-container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Immune2V: Image Immunization Against Dual-Stream Image-to-Video Generation</h1>
@@ -74,8 +76,8 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
+<section class="hero teaser">
+  <div class="container is-max-widescreen page-container">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline controls>
         <source src="videos/fig2/car-turn-original.mp4" type="video/mp4">
@@ -85,7 +87,7 @@
       </h2>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- <section class="hero is-light is-small">
   <div class="hero-body">
@@ -102,24 +104,42 @@
   </div>
 </section> -->
 
-<!-- <section class="section" id="abstract">
-  <div class="container is-max-desktop">
+<section class="section has-background-light" id="abstract">
+  <div class="container is-max-widescreen page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+      <div class="column is-full unified-content-column">
+        <h2 class="title is-3">💭 Abstract</h2>
         <div class="content has-text-justified">
           <p>Image-to-video (I2V) generation has the potential for societal harm because it enables the unauthorized animation of static images to create realistic deepfakes. While existing defenses effectively protect against static image manipulation, extending these to I2V generation remains underexplored and non-trivial. In this paper, we systematically analyze why modern I2V models are highly robust against naive image-level adversarial attacks (i.e., immunization). We observe that the video encoding process rapidly dilutes the adversarial noise across future frames, and the continuous text-conditioned guidance actively overrides the intended disruptive effect of the immunization. Building on these findings, we propose the <strong>Immune2V</strong> framework which enforces temporally balanced latent divergence at the encoder level to prevent signal dilution, and aligns intermediate generative representations with a precomputed collapse-inducing trajectory to counteract the text-guidance override. Extensive experiments demonstrate that Immune2V produces substantially stronger and more persistent degradation than adapted image-level baselines under the same imperceptibility budget.</p>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
-<!-- <section class="section" id="supplementary">
-  <div class="container is-max-desktop">
+<section class="section" id="method">
+  <div class="container is-max-widescreen page-container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full unified-content-column">
+        <h2 class="title is-3">🧠 Method</h2>
+        <div class="figure-block">
+            <img src="./static/images/pipeline.jpg" alt="Pipeline" style="display:block; width:100%; height:auto; margin-bottom:16px;">
+            <div class="content has-text-justified">
+              <p class="figure-caption">
+                <em><strong>Immune2V Framework.</strong></em> Our method simultaneously targets the <span class="stream-spatiotemporal">spatial-temporal</span> and <span class="stream-semantic">semantic</span> streams to ensure persistent disruption. The <strong>Spatial-Temporal Attack</strong> employs a balanced encoder loss and dense targets to recover vanishing optimization signals across temporal segments. The <strong>Semantic Attack</strong> hijacks DiT guidance by forcing intermediate representations to mimic a precomputed collapse trajectory, neutralizing the model's iterative semantic correction. Together, these joint perturbations induce severe structural breakdown across the entire generated video.
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light" id="results">
+  <div class="container is-max-widescreen page-container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Supplementary Material</h2>
+        <h2 class="title is-3 has-text-centered">📹 Results</h2>
         <div class="content has-text-centered section-links">
           <a href="#fig1">Fig. 1</a>
           <a href="#fig2">Fig. 2</a>
@@ -132,24 +152,40 @@
         <div class="content figure-section" id="fig1">
           <h3 class="title is-4">Main Paper Fig. 1: Immune2V Protection</h3>
           <p>Clean images generate realistic motion, while immunized images disrupt generation and produce structurally implausible outputs.</p>
-          <div class="subsection-title">Scene 1: Orchid</div>
-          <div class="columns">
-            <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video><p>Realistic motion.</p></div></div>
-            <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video><p>Severe subject distortion.</p></div></div>
-          </div>
-          <div class="subsection-title">Scene 2: Train</div>
-          <div class="columns">
-            <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-original.mp4" type="video/mp4"></video><p>Realistic train motion.</p></div></div>
-            <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-ours.mp4" type="video/mp4"></video><p>Structural collapse.</p></div></div>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="subsection-title">Scene 1: A man furiously shaking a mounted orchid plant</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video><p>Realistic motion.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video><p>Severe subject distortion.</p></div></div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="subsection-title">Scene 2: A miniature train circling along a curved model railway</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-original.mp4" type="video/mp4"></video><p>Realistic train motion.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-ours.mp4" type="video/mp4"></video><p>Structural collapse.</p></div></div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="content figure-section" id="fig2">
           <h3 class="title is-4">Main Paper Fig. 2: Immunization on Dual-Stream I2V Architecture</h3>
-          <p class="prompt-line">Prompt: "A car is turning on the road"</p>
-          <div class="columns">
-            <div class="column"><div class="video-card"><div class="video-label clean-label">No Immunization</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-original.mp4" type="video/mp4"></video><p>Realistic synthesis.</p></div></div>
-            <div class="column"><div class="video-card"><div class="video-label ours-label">With Immune2V</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-ours.mp4" type="video/mp4"></video><p>Protected input breaks generation.</p></div></div>
+          <!-- <p class="prompt-line">A car is turning on the road</p> -->
+          <div class="columns is-variable is-5">
+            <div class="column is-5">
+              <div class="figure-card fig2-figure-card">
+                <div class="video-label accent-label">Dual-Stream Visualization</div>
+                <img src="./static/images/dual.jpg" alt="Dual-stream architecture visualization">
+              </div>
+            </div>
+            <div class="column is-7">
+              <div class="columns">
+                <div class="column"><div class="video-card fig2-reference-card"><div class="video-label clean-label">No Immunization</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-original.mp4" type="video/mp4"></video><p>Realistic synthesis.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">With Immune2V</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-ours.mp4" type="video/mp4"></video><p>Protected input breaks generation.</p></div></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -165,36 +201,36 @@
 
         <div class="content figure-section" id="fig6">
           <h3 class="title is-4">Main Paper Fig. 6: Qualitative Comparisons</h3>
-          <div class="subsection-title">Example 1: BMX Bumps</div>
-          <p class="prompt-line">Prompt: "A BMX rider riding and jumping on a dirt track"</p>
-          <div class="columns is-multiline">
-            <div class="column is-2"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-original.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-random-gaussian.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-e.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-d.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div></div>
+          <div class="subsection-title">Example 1: A BMX rider riding and jumping on a dirt track</div>
+          <!-- <p class="prompt-line">Prompt: ""</p> -->
+          <div class="columns fig6-row">
+            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-random-gaussian.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-e.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-d.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div></div>
           </div>
-          <div class="subsection-title">Example 2: Horsejump-High</div>
-          <p class="prompt-line">Prompt: "A horse rider jumping over a hurdle"</p>
-          <div class="columns is-multiline">
-            <div class="column is-2"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-original.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-random-gaussian.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-e.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-d.mp4" type="video/mp4"></video></div></div>
-            <div class="column is-2"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-ours.mp4" type="video/mp4"></video></div></div>
+          <div class="subsection-title">Example 2: A horse rider jumping over a hurdle</div>
+          <!-- <p class="prompt-line">Prompt: ""</p> -->
+          <div class="columns fig6-row">
+            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-random-gaussian.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-e.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-d.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-ours.mp4" type="video/mp4"></video></div></div>
           </div>
         </div>
 
         <div class="content figure-section" id="fig7">
           <h3 class="title is-4">Main Paper Fig. 7: Additional Qualitative Results</h3>
-          <div class="subsection-title">Example 1: Car Roundabout</div>
-          <p class="prompt-line">Prompt: "A car driving through a roundabout."</p>
+          <div class="subsection-title">Example 1: A car driving through a roundabout</div>
+          <!-- <p class="prompt-line">Prompt: ""</p> -->
           <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-ours.mp4" type="video/mp4"></video></div></div></div>
-          <div class="subsection-title">Example 2: Boat</div>
-          <p class="prompt-line">Prompt: "A fishing boat moving across the water."</p>
+          <div class="subsection-title">Example 2: A fishing boat moving across the water</div>
+          <!-- <p class="prompt-line">Prompt: ""</p> -->
           <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-ours.mp4" type="video/mp4"></video></div></div></div>
-          <div class="subsection-title">Example 3: Dance Twirl</div>
-          <p class="prompt-line">Prompt: "A dancer twirling during a street performance."</p>
+          <div class="subsection-title">Example 3: A dancer twirling during a street performance</div>
+          <!-- <p class="prompt-line">Prompt: ""</p> -->
           <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-ours.mp4" type="video/mp4"></video></div></div></div>
         </div>
 
@@ -222,19 +258,41 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
-<!-- <section class="section" id="bibtex">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{immune2v2026,
-  title   = {Immune2V: Image Immunization Against Dual-Stream Image-to-Video Generation},
-  author  = {Author One and Author Two and Author Three and Author Four},
-  journal = {Conference Placeholder},
-  year    = {2026},
-}</code></pre>
+<section class="section" id="bibtex">
+  <div class="container is-max-widescreen page-container">
+    <div class="content unified-content-column">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{long2026immune2vimageimmunizationdualstream,
+      title={Immune2V: Image Immunization Against Dual-Stream Image-to-Video Generation}, 
+      author={Zeqian Long and Ozgur Kara and Haotian Xue and Yongxin Chen and James M. Rehg},
+      year={2026},
+      eprint={2604.10837},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2604.10837}, 
+  }</code></pre>
+    </div>
   </div>
-</section> -->
+</section>
+
+<section class="section" id="references">
+  <div class="container is-max-widescreen page-container">
+    <div class="content unified-content-column">
+      <h2 class="title is-4">References</h2>
+      <ol>
+
+      <li>Hadi Salman, Alaa Khaddaj, Guillaume Leclerc, Andrew Ilyas, and Aleksander Madry. Raising the Cost of Malicious AI-Powered Image Editing. Proceedings of the International Conference on Machine Learning (ICML), 2023.</li>
+
+      <li>Jinbo Xing, Menghan Xia, Yong Zhang, Haoxin Chen, Wangbo Yu, Hanyuan Liu, Gongye Liu, Xintao Wang, Ying Shan, and Tien-Tsin Wong. DynamiCrafter: Animating Open-Domain Images with Video Diffusion Priors. Proceedings of the European Conference on Computer Vision (ECCV), 2024.</li>
+
+      <li>Shiwei Zhang, Jiayu Wang, Yingya Zhang, Kang Zhao, Hangjie Yuan, Zhiwu Qin, Xiang Wang, Deli Zhao, and Jingren Zhou. I2vgen-xl: High-quality image-to-video synthesis via cascaded diffusion models. arXiv preprint arXiv:2311.04145, 2023.</li>
+
+      </ol>
+    </div>
+  </div>
+</section>
 
 <!-- <footer class="footer">
   <div class="container">
@@ -250,7 +308,7 @@
 </footer> -->
 
 
-The website will be updated very soon. Stay tuned!
+<!-- The website will be updated very soon. Stay tuned! -->
 
 </body>
 </html>
