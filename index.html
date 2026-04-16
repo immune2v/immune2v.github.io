@@ -79,11 +79,12 @@
 <section class="hero teaser">
   <div class="container is-max-widescreen page-container">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline controls>
-        <source src="videos/fig2/car-turn-original.mp4" type="video/mp4">
+      <video id="teaser" autoplay muted playsinline controls preload="metadata">
+        <source src="videos/demo%20video.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <p><strong>TL;DR:</strong> Immune2V is an image immunization framework that protects images against unauthorized dual-stream image-to-video generation, preventing illicit video synthesis from protected content.
+        <p><strong>TL;DR:</strong> Immune2V is an image immunization framework that protects images against unauthorized dual-stream image-to-video generation, preventing illicit video synthesis from protected content.</p>
+        <!-- <p>Demo playback starts muted because the video includes music. Use the player controls to unmute if needed.</p> -->
       </h2>
     </div>
   </div>
@@ -93,12 +94,12 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video></div>
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video></div>
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div>
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4"></video></div>
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig-dc/ex1-lucia-ours.mp4" type="video/mp4"></video></div>
-        <div class="item"><video autoplay muted loop playsinline controls><source src="videos/fig-i2vgen/parkour-ours.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig-dc/ex1-lucia-ours.mp4" type="video/mp4"></video></div>
+        <div class="item"><video autoplay muted loop playsinline preload="auto"><source src="videos/fig-i2vgen/parkour-ours.mp4" type="video/mp4"></video></div>
       </div>
     </div>
   </div>
@@ -140,119 +141,137 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">📹 Results</h2>
-        <div class="content has-text-centered section-links">
+        <!-- <div class="content has-text-centered section-links">
           <a href="#fig1">Fig. 1</a>
           <a href="#fig2">Fig. 2</a>
           <a href="#fig4">Fig. 4</a>
           <a href="#fig6">Fig. 6</a>
           <a href="#fig7">Fig. 7</a>
           <a href="#fig-other">Other Architectures</a>
-        </div>
+        </div> -->
 
         <div class="content figure-section" id="fig1">
-          <h3 class="title is-4">Main Paper Fig. 1: Immune2V Protection</h3>
+          <h3 class="title is-4">Immune2V on Wan 2.1</h3>
           <p>Clean images generate realistic motion, while immunized images disrupt generation and produce structurally implausible outputs.</p>
           <div class="columns is-variable is-5">
             <div class="column">
-              <div class="subsection-title">Scene 1: A man furiously shaking a mounted orchid plant</div>
+              <div class="prompt-line">Geoffrey Hinton bursts forward with fast, aggressive strikes.</div>
               <div class="columns">
-                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video><p>Realistic motion.</p></div></div>
-                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video><p>Severe subject distortion.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="hinton"><source src="videos/hinton/clean.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="hinton"><source src="videos/hinton/attacked.mp4" type="video/mp4"></video></div></div>
               </div>
             </div>
             <div class="column">
-              <div class="subsection-title">Scene 2: A miniature train circling along a curved model railway</div>
+              <div class="prompt-line">Yoshua Bengio slams the table with sudden anger.</div>
               <div class="columns">
-                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-original.mp4" type="video/mp4"></video><p>Realistic train motion.</p></div></div>
-                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video muted loop playsinline controls data-sync-group="fig1b"><source src="videos/fig1/ex2-train-ours.mp4" type="video/mp4"></video><p>Structural collapse.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="yoshua"><source src="videos/yoshua/clean.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="yoshua"><source src="videos/yoshua/attacked.mp4" type="video/mp4"></video></div></div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="content figure-section" id="fig2">
-          <h3 class="title is-4">Main Paper Fig. 2: Immunization on Dual-Stream I2V Architecture</h3>
-          <!-- <p class="prompt-line">A car is turning on the road</p> -->
           <div class="columns is-variable is-5">
-            <div class="column is-5">
-              <div class="figure-card fig2-figure-card">
-                <div class="video-label accent-label">Dual-Stream Visualization</div>
-                <img src="./static/images/dual.jpg" alt="Dual-stream architecture visualization">
+            <div class="column">
+              <div class="prompt-line">A man furiously shaking a mounted orchid plant</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig1a"><source src="videos/fig1/ex1-orchid-ours.mp4" type="video/mp4"></video></div></div>
               </div>
             </div>
-            <div class="column is-7">
+            <div class="column">
+              <div class="prompt-line">A dancer twirling during a street performance</div>
               <div class="columns">
-                <div class="column"><div class="video-card fig2-reference-card"><div class="video-label clean-label">No Immunization</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-original.mp4" type="video/mp4"></video><p>Realistic synthesis.</p></div></div>
-                <div class="column"><div class="video-card"><div class="video-label ours-label">With Immune2V</div><video muted loop playsinline controls data-sync-group="fig2"><source src="videos/fig2/car-turn-ours.mp4" type="video/mp4"></video><p>Protected input breaks generation.</p></div></div>
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-ours.mp4" type="video/mp4"></video></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="prompt-line">A car driving through a roundabout</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-ours.mp4" type="video/mp4"></video></div></div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="prompt-line">A fishing boat moving across the water</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-ours.mp4" type="video/mp4"></video></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-variable is-5">
+            <div class="column">
+              <div class="prompt-line">A miniature train circling along a curved model railway</div>
+              <div class="columns">
+                <div class="column"><div class="video-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig1b"><source src="videos/fig1/ex2-train-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig1b"><source src="videos/fig1/ex2-train-ours.mp4" type="video/mp4"></video></div></div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="prompt-line">A car is turning on the road</div>
+              <div class="columns">
+                <div class="column"><div class="video-card fig2-reference-card"><div class="video-label clean-label">Clean Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig2"><source src="videos/fig2/car-turn-original.mp4" type="video/mp4"></video></div></div>
+                <div class="column"><div class="video-card"><div class="video-label ours-label">Immunized Image</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig2"><source src="videos/fig2/car-turn-ours.mp4" type="video/mp4"></video></div></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="content figure-section" id="fig4">
+        <!-- <div class="content figure-section" id="fig4">
           <h3 class="title is-4">Main Paper Fig. 4: Semantic Conditioning Override</h3>
           <div class="columns is-multiline">
-            <div class="column is-3"><div class="video-card"><div class="video-label clean-label">Clean + Good Prompt</div><video muted loop playsinline controls data-sync-group="fig4"><source src="videos/fig4/clean-good-prompt.mp4" type="video/mp4"></video><p>Reference baseline.</p></div></div>
-            <div class="column is-3"><div class="video-card"><div class="video-label warning-label">Clean + Bad Prompt</div><video muted loop playsinline controls data-sync-group="fig4"><source src="videos/fig4/clean-bad-prompt.mp4" type="video/mp4"></video><p>Natural divergence.</p></div></div>
-            <div class="column is-3"><div class="video-card"><div class="video-label accent-label">Encoder Imm. + Good Prompt</div><video muted loop playsinline controls data-sync-group="fig4"><source src="videos/fig4/encoder-ours-good-prompt.mp4" type="video/mp4"></video><p>Semantic override remains strong.</p></div></div>
-            <div class="column is-3"><div class="video-card"><div class="video-label ours-label">Ours + Good Prompt</div><video muted loop playsinline controls data-sync-group="fig4"><source src="videos/fig4/ours-good-prompt.mp4" type="video/mp4"></video><p>Disruption is sustained.</p></div></div>
+            <div class="column is-3"><div class="video-card"><div class="video-label clean-label">Clean + Good Prompt</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig4"><source src="videos/fig4/clean-good-prompt.mp4" type="video/mp4"></video><p>Reference baseline.</p></div></div>
+            <div class="column is-3"><div class="video-card"><div class="video-label warning-label">Clean + Bad Prompt</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig4"><source src="videos/fig4/clean-bad-prompt.mp4" type="video/mp4"></video><p>Natural divergence.</p></div></div>
+            <div class="column is-3"><div class="video-card"><div class="video-label accent-label">Encoder Imm. + Good Prompt</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig4"><source src="videos/fig4/encoder-ours-good-prompt.mp4" type="video/mp4"></video><p>Semantic override remains strong.</p></div></div>
+            <div class="column is-3"><div class="video-card"><div class="video-label ours-label">Ours + Good Prompt</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig4"><source src="videos/fig4/ours-good-prompt.mp4" type="video/mp4"></video><p>Disruption is sustained.</p></div></div>
           </div>
-        </div>
+        </div> -->
 
         <div class="content figure-section" id="fig6">
-          <h3 class="title is-4">Main Paper Fig. 6: Qualitative Comparisons</h3>
-          <div class="subsection-title">Example 1: A BMX rider riding and jumping on a dirt track</div>
-          <!-- <p class="prompt-line">Prompt: ""</p> -->
+          <h3 class="title is-4">Qualitative Comparisons</h3>
+          <div class="prompt-line">A BMX rider riding and jumping on a dirt track</div>
           <div class="columns fig6-row">
-            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-original.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-random-gaussian.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-e.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-d.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-random-gaussian.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-e.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-photoguard-d.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6a"><source src="videos/fig6/ex1-bmx-bumps-ours.mp4" type="video/mp4"></video></div></div>
           </div>
-          <div class="subsection-title">Example 2: A horse rider jumping over a hurdle</div>
-          <!-- <p class="prompt-line">Prompt: ""</p> -->
+          <div class="prompt-line">A horse rider jumping over a hurdle</div>
           <div class="columns fig6-row">
-            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-original.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-random-gaussian.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-e.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-d.mp4" type="video/mp4"></video></div></div>
-            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-ours.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label clean-label">Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">Random Gaussian</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-random-gaussian.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-E</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-e.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label baseline-label">PhotoGuard-D</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-photoguard-d.mp4" type="video/mp4"></video></div></div>
+            <div class="column fig6-item"><div class="video-card"><div class="video-label ours-label">Ours</div><video autoplay muted loop playsinline preload="auto" data-sync-group="fig6b"><source src="videos/fig6/ex2-horsejump-ours.mp4" type="video/mp4"></video></div></div>
           </div>
-        </div>
-
-        <div class="content figure-section" id="fig7">
-          <h3 class="title is-4">Main Paper Fig. 7: Additional Qualitative Results</h3>
-          <div class="subsection-title">Example 1: A car driving through a roundabout</div>
-          <!-- <p class="prompt-line">Prompt: ""</p> -->
-          <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7a"><source src="videos/fig7/ex1-car-roundabout-ours.mp4" type="video/mp4"></video></div></div></div>
-          <div class="subsection-title">Example 2: A fishing boat moving across the water</div>
-          <!-- <p class="prompt-line">Prompt: ""</p> -->
-          <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7b"><source src="videos/fig7/ex2-boat-ours.mp4" type="video/mp4"></video></div></div></div>
-          <div class="subsection-title">Example 3: A dancer twirling during a street performance</div>
-          <!-- <p class="prompt-line">Prompt: ""</p> -->
-          <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Clean</div><video muted loop playsinline controls data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Ours</div><video muted loop playsinline controls data-sync-group="fig7c"><source src="videos/fig7/ex3-dance-twirl-ours.mp4" type="video/mp4"></video></div></div></div>
         </div>
 
         <div class="content figure-section" id="fig-other">
-          <h3 class="title is-4">Supplementary Figure: Our Method on Other Architectures</h3>
-          <div class="tabs is-centered is-boxed">
-            <ul>
-              <li class="is-active"><a class="arch-tab" data-panel="panel-dc">DynamiCrafter [1]</a></li>
-              <li><a class="arch-tab" data-panel="panel-i2v">I2VGenXL [2]</a></li>
-            </ul>
+          <h3 class="title is-4">Immune2V on Other Architectures</h3>
+          <div class="columns is-mobile architecture-header">
+            <div class="column is-half architecture-header-group architecture-divider">DynamiCrafter [1]</div>
+            <div class="column is-half architecture-header-group">I2VGenXL [2]</div>
           </div>
-          <div id="panel-dc" class="arch-panel is-active">
-            <div class="subsection-title">DynamiCrafter</div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Lucia Clean</div><video muted loop playsinline controls data-sync-group="dc1"><source src="videos/fig-dc/ex1-lucia-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Lucia Ours</div><video muted loop playsinline controls data-sync-group="dc1"><source src="videos/fig-dc/ex1-lucia-ours.mp4" type="video/mp4"></video></div></div></div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Dog Clean</div><video muted loop playsinline controls data-sync-group="dc2"><source src="videos/fig-dc/ex2-dog-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Dog Ours</div><video muted loop playsinline controls data-sync-group="dc2"><source src="videos/fig-dc/ex2-dog-ours.mp4" type="video/mp4"></video></div></div></div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Violin Clean</div><video muted loop playsinline controls data-sync-group="dc3"><source src="videos/fig-dc/ex3-violin-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Violin Ours</div><video muted loop playsinline controls data-sync-group="dc3"><source src="videos/fig-dc/ex3-violin-ours.mp4" type="video/mp4"></video></div></div></div>
+          <div class="columns architecture-row">
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Lucia Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc1"><source src="videos/fig-dc/ex1-lucia-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item architecture-divider"><div class="video-card"><div class="video-label ours-label">Lucia Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc1"><source src="videos/fig-dc/ex1-lucia-ours.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Parkour Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v1"><source src="videos/fig-i2vgen/parkour-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label ours-label">Parkour Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v1"><source src="videos/fig-i2vgen/parkour-ours.mp4" type="video/mp4"></video></div></div>
           </div>
-          <div id="panel-i2v" class="arch-panel">
-            <div class="subsection-title">I2VGenXL</div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Parkour Clean</div><video muted loop playsinline controls data-sync-group="i2v1"><source src="videos/fig-i2vgen/parkour-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Parkour Ours</div><video muted loop playsinline controls data-sync-group="i2v1"><source src="videos/fig-i2vgen/parkour-ours.mp4" type="video/mp4"></video></div></div></div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Swing Clean</div><video muted loop playsinline controls data-sync-group="i2v2"><source src="videos/fig-i2vgen/swing-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Swing Ours</div><video muted loop playsinline controls data-sync-group="i2v2"><source src="videos/fig-i2vgen/swing-ours.mp4" type="video/mp4"></video></div></div></div>
-            <div class="columns"><div class="column"><div class="video-card"><div class="video-label clean-label">Tandem Clean</div><video muted loop playsinline controls data-sync-group="i2v3"><source src="videos/fig-i2vgen/tandem-original.mp4" type="video/mp4"></video></div></div><div class="column"><div class="video-card"><div class="video-label ours-label">Tandem Ours</div><video muted loop playsinline controls data-sync-group="i2v3"><source src="videos/fig-i2vgen/tandem-ours.mp4" type="video/mp4"></video></div></div></div>
+          <div class="columns architecture-row">
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Dog Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc2"><source src="videos/fig-dc/ex2-dog-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item architecture-divider"><div class="video-card"><div class="video-label ours-label">Dog Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc2"><source src="videos/fig-dc/ex2-dog-ours.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Swing Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v2"><source src="videos/fig-i2vgen/swing-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label ours-label">Swing Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v2"><source src="videos/fig-i2vgen/swing-ours.mp4" type="video/mp4"></video></div></div>
+          </div>
+          <div class="columns architecture-row">
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Violin Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc3"><source src="videos/fig-dc/ex3-violin-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item architecture-divider"><div class="video-card"><div class="video-label ours-label">Violin Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="dc3"><source src="videos/fig-dc/ex3-violin-ours.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label clean-label">Tandem Clean</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v3"><source src="videos/fig-i2vgen/tandem-original.mp4" type="video/mp4"></video></div></div>
+            <div class="column architecture-item"><div class="video-card"><div class="video-label ours-label">Tandem Immunized</div><video autoplay muted loop playsinline preload="auto" data-sync-group="i2v3"><source src="videos/fig-i2vgen/tandem-ours.mp4" type="video/mp4"></video></div></div>
           </div>
         </div>
       </div>

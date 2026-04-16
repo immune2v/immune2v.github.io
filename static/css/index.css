@@ -207,12 +207,36 @@ body {
   max-width: 20%;
 }
 
-.arch-panel {
-  display: none;
+#fig-other .architecture-header,
+#fig-other .architecture-row {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.arch-panel.is-active {
-  display: block;
+#fig-other .architecture-header {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+#fig-other .architecture-header-group {
+  position: relative;
+}
+
+#fig-other .architecture-item {
+  position: relative;
+}
+
+#fig-other .architecture-divider {
+  border-right: 2px dashed #c8ced8;
+}
+
+#fig-other .architecture-item .video-card {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -234,5 +258,19 @@ body {
 
   .publication-links .button {
     width: 100%;
+  }
+
+  #fig-other .architecture-header,
+  #fig-other .architecture-row,
+  #fig-other .architecture-item .video-card {
+    max-width: 100%;
+  }
+
+  #fig-other .architecture-row {
+    display: block;
+  }
+
+  #fig-other .architecture-divider {
+    border-right: none;
   }
 }

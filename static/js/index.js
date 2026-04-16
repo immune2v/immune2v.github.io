@@ -1,5 +1,13 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('video');
+  videos.forEach((video) => {
+    video.muted = true;
+    video.play().catch(() => {});
+  });
+});
+
 function syncFig2CardHeight() {
   const figureCard = document.querySelector('#fig2 .fig2-figure-card');
   const figureImage = document.querySelector('#fig2 .fig2-figure-card img');
@@ -81,13 +89,4 @@ $(document).ready(function() {
   syncFig2CardHeight();
   $(window).on('load resize', syncFig2CardHeight);
   $('video[data-sync-group="fig2"]').on('loadedmetadata loadeddata canplay', syncFig2CardHeight);
-
-  $('.arch-tab').click(function() {
-    const panelId = $(this).data('panel');
-    $('.arch-tab').parent().removeClass('is-active');
-    $(this).parent().addClass('is-active');
-    $('.arch-panel').removeClass('is-active');
-    $('#' + panelId).addClass('is-active');
-    syncVideoGroups();
-  });
 });
